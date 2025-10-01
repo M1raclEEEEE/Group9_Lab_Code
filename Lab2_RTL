@@ -1,0 +1,23 @@
+module Lab2(
+    input  wire key_A,    
+    input  wire key_B,    
+    output reg LED1,      
+    output reg LED2,      
+    output reg LED3       
+);
+
+always @(*) begin
+    LED1 = 1'b0;  
+    LED2 = 1'b0;  
+    LED3 = 1'b0;  
+    
+    case ({key_A, key_B})  
+        2'b00: LED2 = 1'b1;  
+        2'b01: LED1 = 1'b1;  
+        2'b10: LED3 = 1'b1;  
+        2'b11: LED2 = 1'b1;  
+        default: begin LED1=1'b0; LED2=1'b0; LED3=1'b0; end  
+    endcase
+end
+
+endmodule
