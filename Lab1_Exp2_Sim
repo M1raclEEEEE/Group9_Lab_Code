@@ -1,0 +1,38 @@
+`timescale 1ns/1ns
+module tb_Lab2();
+
+reg  tb_key_A;
+reg  tb_key_B;
+wire tb_LED1;
+wire tb_LED2;
+wire tb_LED3;
+
+Lab2 uut_Lab2(
+    .key_A(tb_key_A),
+    .key_B(tb_key_B),
+    .LED1(tb_LED1),
+    .LED2(tb_LED2),
+    .LED3(tb_LED3)
+);
+
+initial begin
+    tb_key_A = 1'b0;
+    tb_key_B = 1'b0;
+    #10;
+    
+    tb_key_A = 1'b0;
+    tb_key_B = 1'b1;
+    #10;
+    
+    tb_key_A = 1'b1;
+    tb_key_B = 1'b0;
+    #10;
+    
+    tb_key_A = 1'b1;
+    tb_key_B = 1'b1;
+    #10;
+    
+    $stop;
+end
+
+endmodule
